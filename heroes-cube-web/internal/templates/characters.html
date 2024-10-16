@@ -1,0 +1,58 @@
+{{define "content"}}
+<h1>Personagens</h1>
+<form hx-get="/characters" hx-target="#character-info">
+    <input type="text" name="name" placeholder="Seu nick na Twitch">
+    <button type="submit">Buscar</button>
+</form>
+
+<div id="character-info">
+    {{if .Character}}
+    <h2>{{.Character.Name}}</h2>
+    <p>Cubos: {{.Character.Points}}</p>
+    <p>Raça: {{.Character.Race}} | Classe: {{.Character.Class}}</p>
+    <p>Dano: {{.Character.Damage}} | Level: {{.Character.Level}}</p>
+
+    <h3>Equipamentos</h3>
+    <table>
+        <tr>
+            <th>Slot</th>
+            <th>Nome</th>
+            <th>Dano</th>
+            <th>Preço</th>
+            <th>Classe</th>
+        </tr>
+        {{range .Slots}}
+        <tr>
+            <td>{{.Slot}}</td>
+            <td>{{.Name}}</td>
+            <td>{{.Damage}}</td>
+            <td>{{.Price}}</td>
+            <td>{{.Class}}</td>
+        </tr>
+        {{end}}
+    </table>
+
+    <h3>Inventário</h3>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Nome</th>
+            <th>Dano</th>
+            <th>Preço</th>
+            <th>Classe</th>
+            <th>Quantidade</th>
+        </tr>
+        {{range .Inventory}}
+        <tr>
+            <td>{{.ID}}</td>
+            <td>{{.Name}}</td>
+            <td>{{.Damage}}</td>
+            <td>{{.Price}}</td>
+            <td>{{.Class}}</td>
+            <td>{{.Quantity}}</td>
+        </tr>
+        {{end}}
+    </table>
+    {{end}}
+</div>
+{{end}}
