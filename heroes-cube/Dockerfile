@@ -23,5 +23,6 @@ RUN GOOS=linux GOARCH=amd64 CGO_ENABLED=0 go build -o heroes-api api/api.go
 FROM scratch
 WORKDIR /
 COPY --from=build /app/heroes-api /api
+EXPOSE 8085
 ENTRYPOINT ["/api"]
 >>>>>>> 5dbcaa9 (add dockerfile)
