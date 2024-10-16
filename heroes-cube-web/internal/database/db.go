@@ -7,8 +7,6 @@ package database
 import (
 	"context"
 	"database/sql"
-
-	_ "github.com/mattn/go-sqlite3" // This line is crucial
 )
 
 type DBTX interface {

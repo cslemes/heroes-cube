@@ -9,7 +9,7 @@ type CharacterViewModel struct {
 	Class  string
 	Damage int64
 	Level  int64
-	Points int64 // You'll need to fetch this from the external API
+	Points int64 
 }
 
 func CharacterToViewModel(c database.Character) CharacterViewModel {
@@ -20,7 +20,7 @@ func CharacterToViewModel(c database.Character) CharacterViewModel {
 		Class:  c.Class,
 		Damage: c.Damage,
 		Level:  c.Level,
-		Points: fetchPointsFromAPI(c.ID), // Implement this function
+		Points: fetchPointsFromAPI(c.ID),
 	}
 }
 
